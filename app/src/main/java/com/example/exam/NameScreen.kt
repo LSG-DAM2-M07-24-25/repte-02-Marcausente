@@ -22,7 +22,7 @@ import androidx.navigation.compose.rememberNavController
 fun NameScreen(navController: NavController, selectedImage: Int?) {
     var characterName by remember { mutableStateOf("") }
 
-    val imageToSend = selectedImage ?: R.drawable.goku
+    val imageToSend = selectedImage ?: R.drawable.goku //He puesto que si no hay imagen seleccionada se ponga por defecto la de goku para eviar problemas
 
     val isButtonEnabled = characterName.isNotBlank()
 
