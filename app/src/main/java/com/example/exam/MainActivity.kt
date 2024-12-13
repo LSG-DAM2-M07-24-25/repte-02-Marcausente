@@ -52,12 +52,17 @@ class MainActivity : ComponentActivity() {
                             modifier = Modifier.padding(innerPadding)
                         )
                     }
+                    composable("SelectCharacter") {
+                        SelectCharacterScreen()
+                    }
                 }
+
+                    }
                 }
             }
         }
     }
-}
+
 
 @Composable
 fun LaunchScreen(modifier: Modifier, onEnterClick: () -> Unit) {
@@ -84,10 +89,11 @@ fun LaunchScreen(modifier: Modifier, onEnterClick: () -> Unit) {
             Spacer(modifier = Modifier.height(20.dp))
 
             Button(
-                onClick = {  },
+                onClick = onEnterClick,
                 shape = RoundedCornerShape(10.dp),
                 modifier = Modifier
-                    .width(150.dp)
+                    .width(250.dp)
+                    .height(50.dp)
             ) {
                 Text(
                     text = "Entrar",
