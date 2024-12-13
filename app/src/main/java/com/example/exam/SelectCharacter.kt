@@ -102,7 +102,7 @@ fun CharacterImage(imageId: Int, isSelected: Boolean, onClick: () -> Unit) {
     Box(
         modifier = Modifier
             .padding(8.dp)
-            .size(100.dp)
+            .size(120.dp)
             .clickable(onClick = onClick)
             .then(
                 if (isSelected) Modifier.border(4.dp, Color.Blue, RoundedCornerShape(10.dp))
@@ -112,8 +112,8 @@ fun CharacterImage(imageId: Int, isSelected: Boolean, onClick: () -> Unit) {
         Image(
             painter = painterResource(id = imageId),
             contentDescription = "Personajes",
-            modifier = Modifier.fillMaxSize().height(100.dp),
-            contentScale = ContentScale.Crop
+            modifier = Modifier.fillMaxSize(),
+            contentScale = ContentScale.Fit
         )
     }
 }
