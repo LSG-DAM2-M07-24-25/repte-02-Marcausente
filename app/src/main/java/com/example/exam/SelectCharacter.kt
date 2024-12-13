@@ -26,10 +26,10 @@ fun SelectCharacterScreen(navController: NavController) {
     val imageList = listOf(
         R.drawable.gomah,
         R.drawable.goku,
-        R.drawable.masked_majin,
+        R.drawable.vegeta,
         R.drawable.piccolo,
         R.drawable.supreme,
-        R.drawable.vegeta
+        R.drawable.masked_majin
     )
 
     Column(
@@ -124,7 +124,6 @@ fun CharacterImage(imageId: Int, isSelected: Boolean, onClick: () -> Unit) {
 @Preview(showBackground = true)
 @Composable
 fun SelectCharacterScreenPreview() {
-    // Usamos un NavController ficticio para el Preview
     val navController = rememberNavController()
     SelectCharacterScreen(navController)
 }
