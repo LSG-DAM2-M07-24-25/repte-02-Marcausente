@@ -22,7 +22,9 @@ import androidx.navigation.compose.rememberNavController
 fun NameScreen(navController: NavController, selectedImage: Int?) {
     var characterName by remember { mutableStateOf("") }
 
-    val imageToSend = selectedImage ?: R.drawable.goku //Esto es por si la persona no ha seleccionado una imagen de las que he puesto te pone la de goku para no dar problemas
+    val imageToSend = selectedImage ?: R.drawable.goku
+
+    val isButtonEnabled = characterName.isNotBlank()
 
     Column(
         modifier = Modifier
@@ -55,10 +57,13 @@ fun NameScreen(navController: NavController, selectedImage: Int?) {
 
         Button(
             onClick = {
-                navController.navigate("Result/$characterName/$imageToSend")
+                if (isButtonEnabled) {
+                    navController.navigate("Result/$characterName/$imageToSend")
+                }
             },
             shape = RoundedCornerShape(10.dp),
-            modifier = Modifier.width(200.dp).height(50.dp)
+            modifier = Modifier.width(200.dp).height(50.dp),
+            enabled = isButtonEnabled //basicamente esto esta porque si no has puesto nada en el campio de nombre no deja enviar y el boton se pone gris
         ) {
             Text(
                 text = "Mostrar",
