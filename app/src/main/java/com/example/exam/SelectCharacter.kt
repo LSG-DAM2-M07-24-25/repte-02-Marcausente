@@ -16,9 +16,11 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 
 @Composable
-fun SelectCharacterScreen() {
+fun SelectCharacterScreen(navController: NavController) {
     var selectedImage by remember { mutableStateOf<Int?>(null) }
 
     val imageList = listOf(
@@ -83,6 +85,7 @@ fun SelectCharacterScreen() {
 
         Button(
             onClick = {
+                navController.navigate("nameScreen")
             },
             enabled = selectedImage != null,
             shape = RoundedCornerShape(10.dp),
@@ -121,5 +124,7 @@ fun CharacterImage(imageId: Int, isSelected: Boolean, onClick: () -> Unit) {
 @Preview(showBackground = true)
 @Composable
 fun SelectCharacterScreenPreview() {
-    SelectCharacterScreen()
+    // Usamos un NavController ficticio para el Preview
+    val navController = rememberNavController()
+    SelectCharacterScreen(navController)
 }

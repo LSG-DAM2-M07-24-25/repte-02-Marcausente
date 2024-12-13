@@ -53,7 +53,10 @@ class MainActivity : ComponentActivity() {
                         )
                     }
                     composable("SelectCharacter") {
-                        SelectCharacterScreen()
+                        SelectCharacterScreen(navController)
+                    }
+                    composable("nameScreen") {
+                        NameScreen()
                     }
                 }
 
