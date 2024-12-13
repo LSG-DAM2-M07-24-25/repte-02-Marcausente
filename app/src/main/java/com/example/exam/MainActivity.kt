@@ -5,27 +5,27 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.LineHeightStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -38,8 +38,8 @@ class MainActivity : ComponentActivity() {
         setContent {
             ExamTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-
+                    LaunchScreen(
+                        modifier = Modifier.padding(innerPadding)
                     )
                 }
             }
@@ -48,54 +48,43 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun RollTheDicePortada(modifier: Modifier = Modifier, onJugarClick: () -> Unit) {
-    Box(modifier = Modifier.fillMaxSize()) {
-        Image(
-            contentScale = ContentScale.FillBounds,
-            painter = painterResource(id = R.drawable.background),
-            contentDescription = "Background",
-            modifier = Modifier.fillMaxSize().matchParentSize()
-        )
-
+fun LaunchScreen(modifier: Modifier) {
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp)
+    ) {
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(20.dp),
-            verticalArrangement = Arrangement.SpaceBetween,
-            horizontalAlignment = Alignment.CenterHorizontally
+                .align(Alignment.Center),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
         ) {
+            // Imagen central
             Image(
-                painter = painterResource(id = R.drawable.logo),
-                contentDescription = "Company Logo",
-                modifier = Modifier.size(150.dp).clip(RoundedCornerShape(30.dp))
-            )
-
-            Text(
-                "ROLL THE DICE",
-                textAlign = TextAlign.Center,
-                color = Color.White,
-                fontSize = 40.sp,
-                fontWeight = FontWeight.Bold,
+                painter = painterResource(id = R.drawable.dragonball_daima_logo), // Cambia "tu_imagen" por el recurso de tu imagen
+                contentDescription = "Dragon Ball Image",
                 modifier = Modifier
-                    .clip(RoundedCornerShape(30.dp))
-                    .background(Color.Gray.copy(alpha = 0.7f))
-                    .padding(16.dp)
+                    .size(400.dp),
+                contentScale = ContentScale.Fit
             )
 
-            Image(
-                painter = painterResource(id = R.drawable.dicesmenu),
-                contentDescription = "Dice Image",
-                modifier = Modifier.size(180.dp).clip(RoundedCornerShape(30.dp)).padding(top = 16.dp)
-            )
+            Spacer(modifier = Modifier.height(20.dp))
 
+            // Botón de Entrar
             Button(
-                onClick = onJugarClick,
-                colors = ButtonDefaults.buttonColors(containerColor = Color.Gray.copy(alpha = 0.7f)),
+                onClick = { /* Acción al pulsar el botón */ },
+                shape = RoundedCornerShape(10.dp),
                 modifier = Modifier
-                    .clip(RoundedCornerShape(20.dp))
-                    .padding(bottom = 116.dp, top = 8.dp)
+                    .width(150.dp)
             ) {
-                Text("Jugar", fontSize = 24.sp, color = Color.White)
+                Text(
+                    text = "Entrar",
+                    fontSize = 18.sp,
+                    fontWeight = FontWeight.Bold,
+                    color = Color.White
+                )
             }
         }
     }
@@ -103,8 +92,12 @@ fun RollTheDicePortada(modifier: Modifier = Modifier, onJugarClick: () -> Unit) 
 
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
+fun FullPagePreview() {
     ExamTheme {
-        Greeting("Android")
+        Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+            LaunchScreen(
+                modifier = Modifier.padding(innerPadding)
+            )
+        }
     }
 }
