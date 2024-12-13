@@ -89,7 +89,7 @@ fun LaunchScreen(modifier: Modifier, onEnterClick: () -> Unit) {
         ) {
             Image(
                 painter = painterResource(id = R.drawable.dragonball_daima_logo),
-                contentDescription = "Dragon Ball Image",
+                contentDescription = "Logo de db",
                 modifier = Modifier
                     .size(400.dp),
                 contentScale = ContentScale.Fit

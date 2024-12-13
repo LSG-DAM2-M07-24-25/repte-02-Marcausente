@@ -33,7 +33,7 @@ fun NameScreen(navController: NavController, selectedImage: Int?) {
     ) {
         Image(
             painter = painterResource(id = R.drawable.dragonball_daima_logo),
-            contentDescription = "Image of Character",
+            contentDescription = "Logo de db",
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(50.dp),

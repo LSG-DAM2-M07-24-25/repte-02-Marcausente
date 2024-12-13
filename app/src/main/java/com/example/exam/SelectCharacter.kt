@@ -39,7 +39,7 @@ fun SelectCharacterScreen(navController: NavController) {
     ) {
         Image(
             painter = painterResource(id = R.drawable.dragonball_daima_logo),
-            contentDescription = "Main Character Image",
+            contentDescription = "Logo de db",
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(50.dp),

@@ -31,7 +31,7 @@ fun ResultScreen(navController: NavController, characterName: String, selectedIm
     ) {
         Image(
             painter = painterResource(id = R.drawable.dragonball_daima_logo),
-            contentDescription = "Image Above",
+            contentDescription = "Image de logo",
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(10.dp),
@@ -43,7 +43,7 @@ fun ResultScreen(navController: NavController, characterName: String, selectedIm
         if (selectedImage != null) {
             Image(
                 painter = painterResource(id = selectedImage),
-                contentDescription = "Selected Character Image",
+                contentDescription = "Imagen seleccionada",
                 modifier = Modifier
                     .fillMaxWidth()
                     .size(200.dp)
