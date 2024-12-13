@@ -55,8 +55,14 @@ class MainActivity : ComponentActivity() {
                     composable("SelectCharacter") {
                         SelectCharacterScreen(navController)
                     }
-                    composable("nameScreen") {
-                        NameScreen(navController)
+                    composable("nameScreen/{selectedImage}") { backStackEntry ->
+                        val selectedImage = backStackEntry.arguments?.getString("selectedImage")?.toIntOrNull()
+                        NameScreen(navController, selectedImage)
+                    }
+                    composable("Result/{characterName}/{selectedImage}") { backStackEntry ->
+                        val characterName = backStackEntry.arguments?.getString("characterName") ?: "Nombre del personaje"
+                        val selectedImage = backStackEntry.arguments?.getString("selectedImage")?.toIntOrNull()
+                        ResultScreen(navController, characterName, selectedImage)
                     }
                 }
 

@@ -53,7 +53,7 @@ fun NameScreen(navController: NavController, selectedImage: Int?) {
 
         Button(
             onClick = {
-                navController.navigate("resultScreen/$characterName/$selectedImage")
+                navController.navigate("Result/$characterName/$selectedImage")
             },
             shape = RoundedCornerShape(10.dp),
             modifier = Modifier.width(200.dp).height(50.dp)
