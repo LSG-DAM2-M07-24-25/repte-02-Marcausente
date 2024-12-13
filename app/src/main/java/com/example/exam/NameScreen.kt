@@ -20,7 +20,7 @@ import androidx.navigation.compose.rememberNavController
 
 @Composable
 fun NameScreen(navController: NavController, selectedImage: Int?) {
-    var characterName by remember { mutableStateOf("Nombre del personaje") }
+    var characterName by remember { mutableStateOf("") }
 
     val imageToSend = selectedImage ?: R.drawable.goku //Esto es por si la persona no ha seleccionado una imagen de las que he puesto te pone la de goku para no dar problemas
 
@@ -45,7 +45,7 @@ fun NameScreen(navController: NavController, selectedImage: Int?) {
         OutlinedTextField(
             value = characterName,
             onValueChange = { characterName = it },
-            label = { Text("Nombre del personaje") },
+            placeholder = { Text("Nombre del personaje") },
             modifier = Modifier.fillMaxWidth(),
             singleLine = true,
             shape = RoundedCornerShape(10.dp)
