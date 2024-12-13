@@ -72,7 +72,7 @@ fun ResultScreen(navController: NavController, characterName: String, selectedIm
 
         Button(
             onClick = {
-                navController.popBackStack()
+                navController.navigate("SelectCharacter")
             },
             shape = RoundedCornerShape(10.dp),
             modifier = Modifier.width(200.dp).height(50.dp)

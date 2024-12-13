@@ -22,8 +22,7 @@ import androidx.navigation.compose.rememberNavController
 fun NameScreen(navController: NavController, selectedImage: Int?) {
     var characterName by remember { mutableStateOf("Nombre del personaje") }
 
-    // Si no se seleccionó una imagen, puedes asignar una predeterminada, por ejemplo, R.drawable.goku
-    val imageToSend = selectedImage ?: R.drawable.goku
+    val imageToSend = selectedImage ?: R.drawable.goku //Esto es por si la persona no ha seleccionado una imagen de las que he puesto te pone la de goku para no dar problemas
 
     Column(
         modifier = Modifier
@@ -56,7 +55,6 @@ fun NameScreen(navController: NavController, selectedImage: Int?) {
 
         Button(
             onClick = {
-                // Pasar el nombre y la imagen seleccionada a la pantalla de Result
                 navController.navigate("Result/$characterName/$imageToSend")
             },
             shape = RoundedCornerShape(10.dp),
@@ -75,6 +73,5 @@ fun NameScreen(navController: NavController, selectedImage: Int?) {
 @Composable
 fun NameScreenPreview() {
     val navController = rememberNavController()
-    // Asumimos que una imagen se pasa aquí como predeterminada.
     NameScreen(navController, selectedImage = R.drawable.goku)
 }
