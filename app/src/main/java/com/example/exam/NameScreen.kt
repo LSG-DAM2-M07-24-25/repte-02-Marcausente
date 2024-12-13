@@ -19,7 +19,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 
 @Composable
-fun NameScreen(navController: NavController) {
+fun NameScreen(navController: NavController, selectedImage: Int?) {
     var characterName by remember { mutableStateOf("Nombre del personaje") }
 
     Column(
@@ -53,6 +53,7 @@ fun NameScreen(navController: NavController) {
 
         Button(
             onClick = {
+                navController.navigate("resultScreen/$characterName/$selectedImageIndex")
             },
             shape = RoundedCornerShape(10.dp),
             modifier = Modifier.width(200.dp).height(50.dp)
@@ -70,5 +71,5 @@ fun NameScreen(navController: NavController) {
 @Composable
 fun NameScreenPreview() {
     val navController = rememberNavController()
-    NameScreen(navController)
+    NameScreen(navController, selectedImage = 0)
 }

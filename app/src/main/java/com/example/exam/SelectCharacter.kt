@@ -85,7 +85,7 @@ fun SelectCharacterScreen(navController: NavController) {
 
         Button(
             onClick = {
-                navController.navigate("nameScreen")
+                navController.navigate("nameScreen/{selectedImage ?: 0}")
             },
             enabled = selectedImage != null,
             shape = RoundedCornerShape(10.dp),
