@@ -19,12 +19,10 @@ import androidx.compose.ui.unit.sp
 
 @Composable
 fun SelectCharacterScreen() {
-    // Estado para la imagen seleccionada
     var selectedImage by remember { mutableStateOf<Int?>(null) }
 
-    // Imágenes que se pueden seleccionar (por ejemplo, imágenes de personajes)
     val imageList = listOf(
-        R.drawable.gomah, // Cambia estos recursos con las imágenes reales
+        R.drawable.gomah,
         R.drawable.goku,
         R.drawable.masked_majin,
         R.drawable.piccolo,
@@ -37,9 +35,8 @@ fun SelectCharacterScreen() {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Top
     ) {
-        // Imagen principal arriba
         Image(
-            painter = painterResource(id = R.drawable.dragonball_daima_logo), // Cambia esta imagen según sea necesario
+            painter = painterResource(id = R.drawable.dragonball_daima_logo),
             contentDescription = "Main Character Image",
             modifier = Modifier
                 .fillMaxWidth()
