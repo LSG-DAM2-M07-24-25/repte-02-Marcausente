@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
@@ -29,7 +30,7 @@ fun ResultScreen(navController: NavController, characterName: String, selectedIm
         verticalArrangement = Arrangement.Top
     ) {
         Image(
-            painter = painterResource(id = R.drawable.dragonball_daima_logo), // Cambia "your_image" por tu imagen
+            painter = painterResource(id = R.drawable.dragonball_daima_logo),
             contentDescription = "Image Above",
             modifier = Modifier
                 .fillMaxWidth()
@@ -49,8 +50,8 @@ fun ResultScreen(navController: NavController, characterName: String, selectedIm
                     .padding(10.dp),
                 contentScale = ContentScale.Crop
             )
-        } else { //Esto te lo he puesto por el control de errores, si no detecta la imagen que es lo que me pasaba te aparece esto
-            Text(
+        } else {
+            Text( //Esto te lo he puesto por el control de errores, si no detecta la imagen que es lo que me pasaba te aparece esto
                 text = "Imagen no disponible",
                 fontSize = 18.sp,
                 color = Color.Red,
@@ -73,7 +74,7 @@ fun ResultScreen(navController: NavController, characterName: String, selectedIm
             onClick = {
                 navController.popBackStack()
             },
-            shape = androidx.compose.foundation.shape.RoundedCornerShape(10.dp),
+            shape = RoundedCornerShape(10.dp),
             modifier = Modifier.width(200.dp).height(50.dp)
         ) {
             Text(
@@ -83,11 +84,4 @@ fun ResultScreen(navController: NavController, characterName: String, selectedIm
             )
         }
     }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun ResultScreenPreview() {
-    val navController = rememberNavController()
-    ResultScreen(navController, characterName = "Goku", selectedImage = R.drawable.goku)
 }
